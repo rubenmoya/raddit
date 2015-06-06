@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @link, info: 'Comment was successfully created.' }
+        format.html { redirect_to @link, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @link = Link.find(@comment.link_id)
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to @link, info: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @link, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
